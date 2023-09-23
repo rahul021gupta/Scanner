@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => ScanPage()));
                   },
-                  child: Text("Scan Qr "))
+                  child: const Text("Scan Qr"))
             ],
           ),
         ),

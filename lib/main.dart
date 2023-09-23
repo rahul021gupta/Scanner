@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scanner_app/homepage.dart';
+import 'package:scanner_app/scan.dart';
 
 void main() {
   runApp(const MyApp());

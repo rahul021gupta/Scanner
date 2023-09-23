@@ -38,17 +38,17 @@ class _ScanPageState extends State<ScanPage> {
       backgroundColor: primaryColor,
       appBar: AppBar(
         backgroundColor: Color(0xff18203d),
-        title: Text("Scan QR"),
+        title: const Text("Scan QR"),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              SizedBox(height: 60),
+              const SizedBox(height: 60),
               const Text(
                 "Result",
                 style: TextStyle(
@@ -57,6 +57,7 @@ class _ScanPageState extends State<ScanPage> {
                     fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
+              const SizedBox(height: 20),
               if (scanResult != null)
                 Card(
                   child: Column(
@@ -65,34 +66,37 @@ class _ScanPageState extends State<ScanPage> {
                         title: const Text('Result Type'),
                         subtitle: Text(scanResult.type.toString()),
                       ),
+
                       ListTile(
                         title: const Text('Raw Content'),
                         subtitle: Text(scanResult.rawContent),
                       ),
+
                       ListTile(
                         title: const Text('Format'),
                         subtitle: Text(scanResult.format.toString()),
                       ),
-                      ListTile(
-                        title: const Text('Format note'),
-                        subtitle: Text(scanResult.formatNote),
-                      ),
+                      // ListTile(
+                      //   title: const Text('Format note'),
+                      //   subtitle: Text(scanResult.formatNote),
+                      // ),
                     ],
                   ),
                 ),
               const SizedBox(
                 height: 20.0,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  _scan();
-                },
-                child: const Text(
-                  "Open Scanner",
-                  style: TextStyle(
-                      color: Color(0xffffffff), fontWeight: FontWeight.bold),
+              if (scanResult == null)
+                ElevatedButton(
+                  onPressed: () {
+                    _scan();
+                  },
+                  child: const Text(
+                    "Open Scanner",
+                    style: TextStyle(
+                        color: Color(0xffffffff), fontWeight: FontWeight.bold),
+                  ),
                 ),
-              ),
               const SizedBox(height: 40),
             ],
           ),
